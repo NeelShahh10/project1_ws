@@ -1,0 +1,84 @@
+#!/usr/bin/env python3
+import rclpy
+from rclpy.executors import ExternalShutdownException
+from rclpy.node import Node
+from sensor_msgs.msg import Joy
+from geometry_msgs.msg import Quaternion
+from std_msgs.msg import Bool
+
+AXIS_X = 0
+AXIS_Y = 1
+LB = 6
+RB = 7
+DEADZONE = 0.05
+PUBLISH_PERIOD = 0.05   # 20 Hz
+HEARTBEAT_PERIOD = 1.0  # 1 Hz
+JOY_TIMEOUT = 0.5       # seconds without joy -> neutral
+
+
+class ControllerNode(Node):
+    def __init__(self):
+        super().__init__('controller_node')
+
+        self.state_pub = self.create_publisher(Quaternion, 'controller_node', 10)
+        self.hb_pub = self.create_publisher(Bool, 'network_heartbeat', 10)
+        self.create_subscription(Joy, 'joy', self.joy_cb, 10)
+
+        self.joy = None
+        self.last_joy = None
+        self.joy_ok = False
+
+        self.create_timer(PUBLISH_PERIOD, self.publish_state)
+        self.create_timer(HEARTBEAT_PERIOD, self.heartbeat)
+        self.get_logger().info('controller_node ready')
+
+    def joy_cb(self, msg):
+        self.joy = msg
+        self.last_joy = self.get_clock().now()
+
+    def publish_state(self):
+        q = Quaternion(x=0.0, y=0.0, z=0.0, w=0.0)
+        if self.joy is not None:
+            age = (self.get_clock().now() - self.last_joy).nanoseconds / 1e9
+            if age <= JOY_TIMEOUT:
+                if not self.joy_ok:
+                    self.joy_ok = True
+                    self.get_logger().info('Joystick connected')
+                q.z = self._button(self.joy.buttons, RB)
+                q.w = self._button(self.joy.buttons, LB)
+                if q.z:
+                    q.x = self._axis(self.joy.axes, AXIS_X)
+                    q.y = -self._axis(self.joy.axes, AXIS_Y)
+            elif self.joy_ok:
+                self.joy_ok = False
+                self.get_logger().warn('JOYSTICK REMOVED! STOPPING.')
+        self.state_pub.publish(q)
+
+    @staticmethod
+    def _axis(axes, index):
+        value = float(axes[index]) if len(axes) > index else 0.0
+        return value if abs(value) >= DEADZONE else 0.0
+
+    @staticmethod
+    def _button(buttons, index):
+        return 1.0 if len(buttons) > index and buttons[index] else 0.0
+
+    def heartbeat(self):
+        self.hb_pub.publish(Bool(data=True))
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = ControllerNode()
+    try:
+        rclpy.spin(node)
+    except (KeyboardInterrupt, ExternalShutdownException):
+        pass
+    finally:
+        node.destroy_node()
+        if rclpy.ok():
+            rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()

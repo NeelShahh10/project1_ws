@@ -1,0 +1,4 @@
+[console_scripts]
+controller_node = controller_pkg.controller_node:main
+receiver_node = controller_pkg.receiver_node:main
+

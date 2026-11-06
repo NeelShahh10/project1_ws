@@ -1,0 +1,18 @@
+[1.077s] Invoking command in '/home/neel/project 1 ws/build/controller_pkg': PYTHONPATH=/home/neel/project 1 ws/build/controller_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/neel/project 1 ws/install/controller_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/neel/project 1 ws/build/controller_pkg/build --no-deps symlink_data
+[1.360s] running develop
+[1.614s] running egg_info
+[1.614s] writing controller_pkg.egg-info/PKG-INFO
+[1.615s] writing dependency_links to controller_pkg.egg-info/dependency_links.txt
+[1.615s] writing entry points to controller_pkg.egg-info/entry_points.txt
+[1.616s] writing requirements to controller_pkg.egg-info/requires.txt
+[1.616s] writing top-level names to controller_pkg.egg-info/top_level.txt
+[1.619s] reading manifest file 'controller_pkg.egg-info/SOURCES.txt'
+[1.620s] writing manifest file 'controller_pkg.egg-info/SOURCES.txt'
+[1.622s] running build_ext
+[1.623s] Creating /home/neel/project 1 ws/install/controller_pkg/lib/python3.10/site-packages/controller-pkg.egg-link (link to .)
+[1.624s] Installing controller_node script to /home/neel/project 1 ws/install/controller_pkg/lib/controller_pkg
+[1.625s] Installing receiver_node script to /home/neel/project 1 ws/install/controller_pkg/lib/controller_pkg
+[1.625s] 
+[1.625s] Installed /home/neel/project 1 ws/build/controller_pkg
+[1.625s] running symlink_data
+[1.672s] Invoked command in '/home/neel/project 1 ws/build/controller_pkg' returned '0': PYTHONPATH=/home/neel/project 1 ws/build/controller_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/neel/project 1 ws/install/controller_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/neel/project 1 ws/build/controller_pkg/build --no-deps symlink_data

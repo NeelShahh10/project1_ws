@@ -1,0 +1,25 @@
+[1.119s] Invoking command in '/home/neel/project 1 ws/build/controller_pkg': PYTHONPATH=/home/neel/project 1 ws/build/controller_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/neel/project 1 ws/install/controller_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/neel/project 1 ws/build/controller_pkg/build --no-deps symlink_data
+[1.533s] running develop
+[1.817s] running egg_info
+[1.818s] creating controller_pkg.egg-info
+[1.818s] writing controller_pkg.egg-info/PKG-INFO
+[1.818s] writing dependency_links to controller_pkg.egg-info/dependency_links.txt
+[1.819s] writing entry points to controller_pkg.egg-info/entry_points.txt
+[1.819s] writing requirements to controller_pkg.egg-info/requires.txt
+[1.819s] writing top-level names to controller_pkg.egg-info/top_level.txt
+[1.819s] writing manifest file 'controller_pkg.egg-info/SOURCES.txt'
+[1.822s] reading manifest file 'controller_pkg.egg-info/SOURCES.txt'
+[1.823s] writing manifest file 'controller_pkg.egg-info/SOURCES.txt'
+[1.825s] running build_ext
+[1.826s] Creating /home/neel/project 1 ws/install/controller_pkg/lib/python3.10/site-packages/controller-pkg.egg-link (link to .)
+[1.827s] Installing controller_node script to /home/neel/project 1 ws/install/controller_pkg/lib/controller_pkg
+[1.827s] Installing receiver_node script to /home/neel/project 1 ws/install/controller_pkg/lib/controller_pkg
+[1.828s] 
+[1.828s] Installed /home/neel/project 1 ws/build/controller_pkg
+[1.828s] running symlink_data
+[1.828s] creating /home/neel/project 1 ws/install/controller_pkg/share/ament_index
+[1.829s] creating /home/neel/project 1 ws/install/controller_pkg/share/ament_index/resource_index
+[1.829s] creating /home/neel/project 1 ws/install/controller_pkg/share/ament_index/resource_index/packages
+[1.829s] symbolically linking /home/neel/project 1 ws/build/controller_pkg/resource/controller_pkg -> /home/neel/project 1 ws/install/controller_pkg/share/ament_index/resource_index/packages
+[1.829s] symbolically linking /home/neel/project 1 ws/build/controller_pkg/package.xml -> /home/neel/project 1 ws/install/controller_pkg/share/controller_pkg
+[1.870s] Invoked command in '/home/neel/project 1 ws/build/controller_pkg' returned '0': PYTHONPATH=/home/neel/project 1 ws/build/controller_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/neel/project 1 ws/install/controller_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/neel/project 1 ws/build/controller_pkg/build --no-deps symlink_data
